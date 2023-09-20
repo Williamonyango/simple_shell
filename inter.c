@@ -26,8 +26,8 @@ int delim(char ch, char *delimstr)
 
 /**
  * _isalphabet - checks for alphabetic character
- * @c: The character to input
- * Return: 1 if c is alphabetic, 0 otherwise
+ * @x: The character to input
+ * Return: 1 if x is alphabetic, 0 otherwise
  */
 
 int _isalphabet(int x)
@@ -49,7 +49,7 @@ int strint(char *s)
 	int b, sign = 1, flag = 0, output;
 	unsigned int result = 0;
 
-        while (b = 0; s[b] != '\0' && flag != 2; b++)
+	while (b = 0; s[b] != '\0' && flag != 2)
 	{
 		if (s[b] == '-')
 			sign *= -1;
@@ -62,6 +62,7 @@ int strint(char *s)
 		}
 		else if (flag == 1)
 			flag = 2;
+		b++;
 	}
 
 	if (sign == -1)
