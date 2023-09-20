@@ -54,7 +54,7 @@ typedef struct liststr
  * struct passinfo - contains pseudo-arguements to pass into a function,
  * allowing uniform prototype for function pointer struct
  * @arg: a string generated from getline containing arguements
- * @argv:an array of strings generated from arg
+ * @argv: an array of strings generated from arg
  * @path: a string path for the current command
  * @argc: the argument count
  * @line_count: the error count
@@ -128,7 +128,7 @@ int loophsh(char **);
 /* toem_errors.c */
 void _eputs(char *);
 int _eputchar(char);
-int _putfid(char c, int fid);
+int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 
 /* toem_string.c */
@@ -161,10 +161,10 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
-int interact(info_t *);
-int delim(char, char *);
-int _isalphabet(int);
-int strint(char *);
+int interactive(info_t *);
+int is_delim(char, char *);
+int _isalpha(int);
+int _atoi(char *);
 
 /* toem_errors1.c */
 int _erratoi(char *);
@@ -174,9 +174,9 @@ char *convert_number(long int, int, int);
 void remove_comments(char *);
 
 /* toem_builtin.c */
-int shellexit(info_t *);
-int _cd(info_t *);
-int help(info_t *);
+int _myexit(info_t *);
+int _mycd(info_t *);
+int _myhelp(info_t *);
 
 /* toem_builtin1.c */
 int _myhistory(info_t *);
@@ -194,10 +194,10 @@ void free_info(info_t *, int);
 
 /* toem_environ.c */
 char *_getenv(info_t *, const char *);
-int _env(info_t *);
-int _setenv(info_t *);
-int _unsetenv(info_t *);
-int env_list_populater(info_t *);
+int _myenv(info_t *);
+int _mysetenv(info_t *);
+int _myunsetenv(info_t *);
+int populate_env_list(info_t *);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
